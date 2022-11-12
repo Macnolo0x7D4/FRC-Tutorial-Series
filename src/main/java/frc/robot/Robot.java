@@ -9,22 +9,23 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class. Runs the motors with
  * arcade steering.
  */
 public class Robot extends TimedRobot {
-  // private final PWMSparkMax m_leftMotor = new PWMSparkMax(0);
-  // private final PWMSparkMax m_rightMotor = new PWMSparkMax(1);
+  private final PWMVictorSPX m_frontLeftMotor = new PWMVictorSPX(0);
+  private final PWMVictorSPX m_rearLeftMotor = new PWMVictorSPX(1);
 
-  private final CANSparkMax m_leftMotor = new CANSparkMax(2, MotorType.kBrushless);
-  private final CANSparkMax m_rightMotor = new CANSparkMax(3, MotorType.kBrushless);
+  private final PWMVictorSPX m_frontRightMotor = new PWMVictorSPX(2);
+  private final PWMVictorSPX m_rearRightMotor = new PWMVictorSPX(3);
 
-  // private final PWMVictorSPX m_victor = new PWMVictorSPX(3);
+  private final MecanumDrive m_robotDrive = new MecanumDrive(m_frontLeftMotor, m_rearLeftMotor, m_frontRightMotor, m_rearRightMotor);
 
-  private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
   private final XboxController m_xboxController = new XboxController(0);
 
   @Override
@@ -37,6 +38,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    m_robotDrive.arcadeDrive(-m_xboxController.getLeftY(), m_xboxController.getLeftX());
+    m_robotDrive.driveCartesian(-m_xboxController.getLeftY(), m_xboxController.getLeftX(), 0);
   }
 }

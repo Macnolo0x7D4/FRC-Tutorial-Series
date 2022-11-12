@@ -10,11 +10,12 @@
     "types": {
       "/FMSInfo": "FMSInfo",
       "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/MecanumDrive[1]": "MecanumDrive",
       "/LiveWindow/Ungrouped/PWMTalonSRX[2]": "Motor Controller",
       "/LiveWindow/Ungrouped/PWMVictorSPX[3]": "Motor Controller"
     },
     "windows": {
-      "/LiveWindow/Ungrouped/DifferentialDrive[1]": {
+      "/LiveWindow/Ungrouped/MecanumDrive[1]": {
         "window": {
           "visible": true
         }
