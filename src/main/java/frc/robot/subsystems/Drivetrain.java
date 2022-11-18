@@ -32,4 +32,8 @@ public class Drivetrain extends SubsystemBase {
   public void drive(double speed, double rot) {
     m_drive.arcadeDrive(speed, rot);
   }
+
+  public void stop() {
+    m_drive.arcadeDrive(0, 0);
+  }
 }
