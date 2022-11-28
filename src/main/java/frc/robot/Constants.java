@@ -17,4 +17,8 @@ public final class Constants {
   public static final int FR_MOTOR = 1;
   public static final int RL_MOTOR = 2;
   public static final int RR_MOTOR = 3;
+
+  public static final int SHOOTER_MOTOR = 4;
+  public static final int SHOOTER_ENCODER_1 = 5;
+  public static final int SHOOTER_ENCODER_2 = 6;
 }
